@@ -1,0 +1,24 @@
+<div ng-controller="dashboardController as UC" class= 'move_right'>
+    <a href="#/dashboard">Home</a> | <a href ng-click="UC.logout()">Logout</a>
+</div>
+<div ng-controller="profileController as U_C">
+  <h4>{{U_C.profile_user.name}}'s Bucket List</h4>
+  <p>
+    <b>Done:</b>
+  </p>
+  <p ng-repeat="(i,task) in U_C.profile_user._tasks">
+    <span ng-if="task.complete == true">
+      <input type="checkbox" ng-checked="task.complete" ng-disabled=true>
+      {{ task._creator.name }} | {{task.title}} - {{task.description}} - {{task.createdAt  | date : format : timezone }}
+    </span>
+  </p>
+  <p>
+    <b>Pending:</b>
+  </p>
+  <p ng-repeat="(i,task) in U_C.profile_user._tasks">
+    <span ng-if="task.complete == false">
+      <input type="checkbox" ng-checked="task.complete" ng-disabled=true>
+      {{ task._creator.name }} | {{task.title}} - {{task.description}} - {{task.createdAt  | date : format : timezone }}
+    </span>
+  </p>
+</div>

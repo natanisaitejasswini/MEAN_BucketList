@@ -1,0 +1,51 @@
+<div class='move_right' ng-controller="dashboardController as UC">
+    <a href="#/dashboard">Home</a> | <a href ng-click="UC.logout()">Logout</a>
+</div>
+<div ng-controller="dashboardController as DC">
+  <h4>Welcome,{{DC.activeUser.name}}!</h4>
+   <!-- Form Fileds to enter -->
+  <p> 
+    <form name='new_task'>
+      <input type="text" name="title" ng-model="DC.title" ng-minlength='5' required placeholder="Title">
+      <input type="text" name="description" ng-model="DC.description" ng-minlength='10' required placeholder="Description">
+      <select ng-model="DC.tagged" name='tagged' placeholder='select' required>
+        <option disabled selected value>  select User </option>
+        <option  ng-repeat="user in DC.users | filter: '!{{DC.activeUser._name}}'" value="{{user._id}}" ng-bind="user.name"></option>
+      </select>
+      <button ng-click="DC.create()">Add to List</button>
+    </form>
+    <!-- ///////////////////////////////Error -Messages///////////////////////////////////// -->
+    <div ng-if= 'new_task.title.$error.required' ng-show='new_task.title.$touched'>
+        Enter Title for task
+    </div> 
+    <div ng-if= 'new_task.title.$error.minlength' ng-show='new_task.title.$touched'>
+        Length of Title should be atleast 5 characters
+    </div> 
+    <div ng-if= 'new_task.description.$error.required' ng-show='new_task.description.$touched'>
+        Enter Description for task
+    </div> 
+    <div ng-if= 'new_task.description.$error.minlength' ng-show='new_task.description.$touched'>
+        Length of Description should be atleast 10 characters
+    </div> 
+    <div ng-if= 'new_task.tagged.$error.required' ng-show='new_task.tagged.$touched'>
+        Do select a user to tag
+    </div> 
+  </p>
+    <!-- ///////////////////////////////////////////Displaying Tasks//////////////////////////////////////////// -->
+  <p class='green'>
+  <b>Before I die I want to:</b>
+  </p>
+  <p ng-repeat="(i,task) in DC.tasks | orderBy:'-createdAt'">
+      <input type="checkbox" ng-click="DC.switch(task._id)"  ng-checked="task.complete">
+    {{ task._creator.name}} | {{task.title}} - {{task.description}} - {{task.createdAt  | date : format : timezone }}
+  </p>
+  <p class='red'>
+    <b>List of other users (Click to view profile)</b>
+  </p>
+  <p ng-repeat="user in DC.users | orderBy: 'name'">
+    <span ng-if="user._id !== activeUser._id">
+      <a class='resize' href="#/user/{{user._id}}">{{user.name}}</a>
+    </span>
+  </p>
+</div>
+

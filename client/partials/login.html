@@ -1,0 +1,15 @@
+<div ng-controller = "loginController as Lc">
+<h3>Bucket Lists</h3>
+    <form name='userForm'>
+    
+    <!-- First_name: name -->
+    Name: <input type="text" ng-model='Lc.name' name='name' required minlength='4'><br><br> 
+    <input type="submit" value="Login" ng-click='Lc.login()'>
+    </form>
+  <div ng-if="userForm.name.$error.required" ng-show='userForm.name.$touched' class="error">
+      You forgot to enter your name...
+  </div>
+  <div ng-if="userForm.name.$error.minlength" ng-show='userForm.name.$touched' class="error">
+      You name is short...
+  </div>
+</div>

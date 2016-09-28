@@ -1,0 +1,63 @@
+*{
+margin: 0px;
+padding: 0px;
+font-family: arial;
+font-size: 14px;
+}
+body{
+	border: 1px solid black;
+	margin: 56px 95px 57px 200px;
+	padding-left: 20px;
+	padding-top: 20px;
+}
+form{
+padding: 20px;
+}
+
+.box_style{
+height: 100px;
+width: 120px;
+overflow: scroll;
+border:8px solid yellowgreen;
+padding: 2%;
+float: right;
+margin-right: -160px;
+}
+
+.filter_style{
+float: right;
+margin-right: 10px;
+}
+
+li{
+list-style: none;
+}
+
+table {
+margin-left: 30px;
+border-collapse: collapse;
+}
+
+td, th {
+border: 1px solid black;
+text-align: left;
+padding-left: 6px;
+}
+
+tr:nth-child(even){
+background-color: #dddddd;
+}
+select{
+width: 80px;
+margin-right: 20px; 
+}
+.red{
+color: red;
+}
+.green{
+color: green;
+}
+.move_right{
+margin-left: 500px;
+font-size: 25px;
+}

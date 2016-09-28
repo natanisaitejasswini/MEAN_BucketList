@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>First_Mean_Project</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" >
+	<link rel="stylesheet" type="text/css" href="static/stylesheets/style.css">
+	<link rel="icon" href="assets/static/icon/favicon.ico">
+
+	<!-- Bower Components -->
+	<script src='angular/angular.js' charset= "utf-8"></script>
+  <script src='angular-route/angular-route.js' charset= "utf-8"></script>
+	<script src='angular-cookies/angular-cookies.js' charset= "utf-8"></script>
+  	<!-- End Bower Components -->
+
+  	<!-- Scripts Tags Including factories and controllers -->
+  	<script src="assets/app.js" charset="utf-8"></script>
+
+  	<!-- Factories First -->
+  	<script src='assets/factories/usersFactory.js'></script> 
+  	<script src='assets/factories/taskFactory.js'></script> 
+  	<!-- Controllers -->
+  	<script src='assets/controllers/loginController.js'></script>
+  	<script src='assets/controllers/dashboardController.js'></script>
+  	<script src='assets/controllers/profileController.js'></script>
+</head>
+<body>
+	<div ng-app='app'>
+	    <div ng-view=""></div>
+	</div>
+  </div>
+</body>
+</html>
